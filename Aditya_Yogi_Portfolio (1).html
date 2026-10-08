@@ -1,0 +1,1381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Aditya Yogi — Senior Software Developer specializing in PHP, Laravel, MySQL, REST APIs, Redis and scalable backend systems.">
+<meta name="author" content="Aditya Yogi">
+<title>Aditya Yogi | Senior Software Developer</title>
+
+<style>
+:root {
+    --bg: #f6f8fc;
+    --surface: #ffffff;
+    --surface-soft: #f0f3f8;
+    --text: #111827;
+    --muted: #667085;
+    --border: #dfe4ec;
+    --accent: #3157d5;
+    --accent-dark: #2445b3;
+    --shadow: 0 18px 50px rgba(17, 24, 39, 0.08);
+    --radius: 18px;
+}
+
+[data-theme="dark"] {
+    --bg: #0b0f16;
+    --surface: #121824;
+    --surface-soft: #18202d;
+    --text: #f3f6fb;
+    --muted: #a9b3c3;
+    --border: #293344;
+    --accent: #8ca5ff;
+    --accent-dark: #a9baff;
+    --shadow: 0 18px 50px rgba(0, 0, 0, 0.25);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 85px;
+}
+
+body {
+    font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    transition: background 0.25s ease, color 0.25s ease;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    font: inherit;
+}
+
+.container {
+    width: min(1120px, calc(100% - 40px));
+    margin: 0 auto;
+}
+
+/* NAVIGATION */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(246, 248, 252, 0.88);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+}
+
+[data-theme="dark"] .navbar {
+    background: rgba(11, 15, 22, 0.88);
+}
+
+.nav-inner {
+    min-height: 68px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+}
+
+.logo span {
+    color: var(--accent);
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.nav-links a {
+    color: var(--muted);
+    font-size: 14px;
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+    color: var(--text);
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.theme-toggle,
+.menu-toggle {
+    width: 38px;
+    height: 38px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--text);
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.menu-toggle {
+    display: none;
+}
+
+/* HERO */
+.hero {
+    min-height: 720px;
+    display: grid;
+    grid-template-columns: 1.3fr 0.7fr;
+    align-items: center;
+    gap: 60px;
+    padding: 90px 0 80px;
+}
+
+.eyebrow {
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.hero h1 {
+    max-width: 850px;
+    margin: 16px 0 24px;
+    font-size: clamp(48px, 7vw, 82px);
+    line-height: 0.98;
+    letter-spacing: -0.06em;
+}
+
+.hero-description {
+    max-width: 760px;
+    color: var(--muted);
+    font-size: 19px;
+    line-height: 1.75;
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 30px;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 46px;
+    padding: 0 18px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--text);
+    font-size: 14px;
+    font-weight: 750;
+    transition: 0.2s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    border-color: var(--accent);
+}
+
+.btn-primary {
+    background: var(--text);
+    border-color: var(--text);
+    color: var(--bg);
+}
+
+.hero-card {
+    padding: 28px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 22px;
+    box-shadow: var(--shadow);
+}
+
+.metric {
+    padding: 18px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.metric:last-child {
+    border-bottom: 0;
+}
+
+.metric strong {
+    display: block;
+    font-size: 25px;
+    line-height: 1.25;
+}
+
+.metric span {
+    display: block;
+    margin-top: 5px;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+/* SECTIONS */
+section {
+    padding: 70px 0;
+}
+
+.section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 25px;
+    margin-bottom: 32px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--border);
+}
+
+.section-heading h2 {
+    font-size: 31px;
+    letter-spacing: -0.04em;
+}
+
+.section-heading p {
+    max-width: 590px;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: 0 8px 28px rgba(17, 24, 39, 0.035);
+}
+
+/* SKILLS */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+.skill-card {
+    padding: 24px;
+}
+
+.skill-card h3 {
+    margin-bottom: 10px;
+    font-size: 17px;
+}
+
+.skill-card p {
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin-top: 17px;
+}
+
+.tag {
+    padding: 5px 9px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: var(--surface-soft);
+    font-size: 11px;
+    font-weight: 650;
+}
+
+/* EXPERIENCE */
+.timeline {
+    position: relative;
+}
+
+.experience {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 35px;
+    padding: 30px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.experience:first-child {
+    padding-top: 0;
+}
+
+.experience:last-child {
+    border-bottom: 0;
+}
+
+.experience-date {
+    color: var(--muted);
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.experience h3 {
+    font-size: 21px;
+    letter-spacing: -0.02em;
+}
+
+.company {
+    margin: 4px 0 15px;
+    color: var(--accent);
+    font-weight: 750;
+    font-size: 14px;
+}
+
+.experience ul {
+    padding-left: 19px;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.experience li + li {
+    margin-top: 8px;
+}
+
+/* PROJECTS */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+
+.project-card {
+    min-height: 235px;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-number {
+    color: var(--accent);
+    font-size: 11px;
+    font-weight: 850;
+    letter-spacing: 0.12em;
+}
+
+.project-card h3 {
+    margin: 14px 0 10px;
+    font-size: 20px;
+    letter-spacing: -0.025em;
+}
+
+.project-card p {
+    flex: 1;
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+/* AWARDS */
+.awards-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 13px;
+}
+
+.award-card {
+    display: flex;
+    gap: 16px;
+    padding: 22px;
+}
+
+.award-year {
+    min-width: 48px;
+    color: var(--accent);
+    font-weight: 850;
+}
+
+.award-card h3 {
+    font-size: 16px;
+}
+
+.award-card p {
+    margin-top: 4px;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.education-card {
+    margin-top: 16px;
+    padding: 24px;
+}
+
+.education-card h3 {
+    font-size: 18px;
+}
+
+.education-card p {
+    margin-top: 6px;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+/* CONTACT */
+.contact-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    padding: 38px;
+}
+
+.contact-card h2 {
+    margin-top: 7px;
+    font-size: 30px;
+    letter-spacing: -0.04em;
+}
+
+.contact-card p {
+    margin-top: 7px;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.contact-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+/* FOOTER */
+footer {
+    padding: 30px 0 50px;
+    color: var(--muted);
+    font-size: 13px;
+    text-align: center;
+}
+
+/* REVEAL */
+.reveal {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 0.55s ease, transform 0.55s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* MOBILE */
+@media (max-width: 850px) {
+    .nav-links {
+        display: none;
+        position: absolute;
+        left: 20px;
+        right: 20px;
+        top: 66px;
+        padding: 16px;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        box-shadow: var(--shadow);
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 14px;
+    }
+
+    .nav-links.open {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .hero {
+        min-height: auto;
+        grid-template-columns: 1fr;
+        gap: 35px;
+        padding: 65px 0;
+    }
+
+    .hero h1 {
+        font-size: clamp(46px, 13vw, 68px);
+    }
+
+    .skills-grid,
+    .projects-grid,
+    .awards-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .experience {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+
+    .contact-card {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 520px) {
+    .container {
+        width: min(100% - 28px, 1120px);
+    }
+
+    .hero {
+        padding: 50px 0;
+    }
+
+    section {
+        padding: 50px 0;
+    }
+
+    .section-heading {
+        display: block;
+    }
+
+    .section-heading p {
+        margin-top: 8px;
+    }
+
+    .hero-description {
+        font-size: 17px;
+    }
+
+    .hero-card {
+        padding: 20px;
+    }
+
+    .contact-card {
+        padding: 25px;
+    }
+}
+
+/* --- SUBTLE GRADIENT THEME --- */
+:root {
+    --accent: #2563eb;
+    --accent-2: #7c3aed;
+    --accent-soft: rgba(37, 99, 235, 0.08);
+    --gradient: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+}
+
+[data-theme="dark"] {
+    --accent: #7ea6ff;
+    --accent-2: #b18cff;
+    --accent-soft: rgba(126, 166, 255, 0.10);
+    --gradient: linear-gradient(135deg, #4f7cff 0%, #9b6cff 100%);
+}
+
+.navbar { border-bottom-color: color-mix(in srgb, var(--accent) 12%, var(--border)); }
+.logo span { background: var(--gradient); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.nav-links a:hover { color: var(--accent); }
+
+.hero { position: relative; isolation: isolate; }
+.hero::before {
+    content: "";
+    position: absolute;
+    width: 520px;
+    height: 520px;
+    right: -150px;
+    top: 60px;
+    background: radial-gradient(circle, rgba(37,99,235,.11) 0%, rgba(124,58,237,.06) 38%, transparent 70%);
+    filter: blur(8px);
+    pointer-events: none;
+    z-index: -1;
+}
+.hero h1 {
+    background: linear-gradient(135deg, var(--text) 0%, var(--text) 58%, var(--accent) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+.eyebrow { color: var(--accent); }
+.btn-primary {
+    background: var(--gradient);
+    border-color: transparent;
+    color: #fff;
+    box-shadow: 0 8px 24px rgba(37,99,235,.18);
+}
+.btn-primary:hover { border-color: transparent; box-shadow: 0 10px 28px rgba(37,99,235,.24); }
+.hero-card {
+    position: relative;
+    overflow: hidden;
+    border-top: 2px solid transparent;
+    border-image: var(--gradient) 1;
+}
+.hero-card::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto;
+    height: 4px;
+    background: var(--gradient);
+}
+.metric strong { background: var(--gradient); -webkit-background-clip: text; background-clip: text; color: transparent; }
+
+.section-heading { border-bottom-color: color-mix(in srgb, var(--accent) 18%, var(--border)); }
+.section-heading h2::after {
+    content: "";
+    display: block;
+    width: 46px;
+    height: 3px;
+    margin-top: 10px;
+    border-radius: 99px;
+    background: var(--gradient);
+}
+.card { transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease; }
+.card:hover { transform: translateY(-3px); border-color: color-mix(in srgb, var(--accent) 28%, var(--border)); box-shadow: 0 14px 38px rgba(37,99,235,.08); }
+.skill-card h3 { color: var(--accent); }
+
+.tag, .skill-tag, .tech-tag {
+    background: linear-gradient(135deg, rgba(37,99,235,.07), rgba(124,58,237,.07));
+    border-color: rgba(37,99,235,.14);
+}
+
+.experience-item, .project-card, .award-card { position: relative; overflow: hidden; }
+.experience-item::before, .project-card::before, .award-card::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: var(--gradient);
+    opacity: .85;
+}
+
+.cta {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, rgba(37,99,235,.10), rgba(124,58,237,.09));
+    border: 1px solid rgba(37,99,235,.16);
+}
+.cta::after {
+    content: "";
+    position: absolute;
+    width: 280px;
+    height: 280px;
+    right: -110px;
+    top: -130px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(124,58,237,.16), transparent 68%);
+    pointer-events: none;
+}
+
+[data-theme="dark"] .hero::before { background: radial-gradient(circle, rgba(79,124,255,.16) 0%, rgba(155,108,255,.09) 38%, transparent 70%); }
+[data-theme="dark"] .cta { background: linear-gradient(135deg, rgba(79,124,255,.13), rgba(155,108,255,.11)); }
+
+@media (max-width: 760px) {
+    .hero::before { right: -260px; top: 30px; opacity: .8; }
+    .hero h1 { background: none; -webkit-text-fill-color: initial; color: var(--text); }
+}
+
+
+/* --- SECTION GRADIENTS & POLISHED MOTION --- */
+section {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+}
+
+section:not(#home)::before {
+    content: "";
+    position: absolute;
+    width: 420px;
+    height: 420px;
+    border-radius: 50%;
+    top: 5%;
+    right: -230px;
+    background: radial-gradient(circle, rgba(37,99,235,.065) 0%, rgba(124,58,237,.035) 42%, transparent 72%);
+    filter: blur(5px);
+    pointer-events: none;
+    z-index: -1;
+    animation: sectionFloat 12s ease-in-out infinite;
+}
+
+section:nth-of-type(odd)::before {
+    left: -230px;
+    right: auto;
+    top: 28%;
+    background: radial-gradient(circle, rgba(124,58,237,.055) 0%, rgba(37,99,235,.03) 42%, transparent 72%);
+    animation-delay: -5s;
+}
+
+section:nth-of-type(even) {
+    background: linear-gradient(180deg, transparent 0%, rgba(37,99,235,.018) 48%, transparent 100%);
+}
+
+[data-theme="dark"] section:not(#home)::before {
+    background: radial-gradient(circle, rgba(79,124,255,.10) 0%, rgba(155,108,255,.055) 42%, transparent 72%);
+}
+
+[data-theme="dark"] section:nth-of-type(odd)::before {
+    background: radial-gradient(circle, rgba(155,108,255,.085) 0%, rgba(79,124,255,.04) 42%, transparent 72%);
+}
+
+[data-theme="dark"] section:nth-of-type(even) {
+    background: linear-gradient(180deg, transparent 0%, rgba(79,124,255,.025) 48%, transparent 100%);
+}
+
+.nav-links a {
+    position: relative;
+    padding: 8px 0;
+}
+
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 1px;
+    height: 2px;
+    border-radius: 99px;
+    background: var(--gradient);
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform .25s ease;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+    transform: scaleX(1);
+}
+
+.nav-links a.active {
+    color: var(--accent);
+}
+
+.hero-card,
+.project-card,
+.award-card,
+.skill-card,
+.contact-card {
+    animation: softFloat 7s ease-in-out infinite;
+}
+
+.project-card:nth-child(2n),
+.award-card:nth-child(2n),
+.skill-card:nth-child(2n) {
+    animation-delay: -2.5s;
+}
+
+.project-card:nth-child(3n),
+.award-card:nth-child(3n),
+.skill-card:nth-child(3n) {
+    animation-delay: -4.5s;
+}
+
+.hero-card:hover,
+.project-card:hover,
+.award-card:hover,
+.skill-card:hover,
+.contact-card:hover {
+    animation-play-state: paused;
+}
+
+@keyframes softFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-3px); }
+}
+
+@keyframes sectionFloat {
+    0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+    50% { transform: translate3d(12px, -16px, 0) scale(1.04); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+</style>
+</head>
+
+<body>
+<div id="portfolio">
+
+    <!-- Navigation -->
+    <header class="navbar">
+        <div class="container nav-inner">
+            <a href="#home" class="logo">Aditya<span>.</span></a>
+
+            <nav class="nav-links" id="navLinks">
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#experience">Experience</a>
+                <a href="#projects">Projects</a>
+                <a href="#awards">Awards</a>
+                <a href="#contact">Contact</a>
+            </nav>
+
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">◐</button>
+                <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">☰</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- Hero -->
+        <section class="hero container" id="home">
+            <div class="reveal">
+                <div class="eyebrow">Senior Software Developer</div>
+
+                <h1>Building scalable backend systems that solve real business problems.</h1>
+
+                <p class="hero-description">
+                    Backend and full-stack developer with 5+ years of experience across PHP,
+                    Laravel, MySQL, REST APIs, Redis, SaaS platforms and third-party integrations.
+                    Experienced in turning business requirements into reliable technical solutions
+                    and leading small development teams.
+                </p>
+
+                <div class="hero-actions">
+                    <a class="btn btn-primary" href="mailto:adityayogi07@gmail.com">Contact Me</a>
+                    <a class="btn" href="#projects">View Projects</a>
+                </div>
+            </div>
+
+            <div class="hero-card reveal">
+                <div class="metric">
+                    <strong>5+ Years</strong>
+                    <span>Software development experience</span>
+                </div>
+
+                <div class="metric">
+                    <strong>Laravel · PHP</strong>
+                    <span>Core backend specialization</span>
+                </div>
+
+                <div class="metric">
+                    <strong>REST APIs · Redis</strong>
+                    <span>Scalable integrations & background processing</span>
+                </div>
+
+                <div class="metric">
+                    <strong>Senior Developer</strong>
+                    <span>Journai Global Pvt Ltd</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- About -->
+        <section id="about">
+            <div class="container">
+                <div class="section-heading reveal">
+                    <h2>About Me</h2>
+                    <p>
+                        A backend-focused developer who enjoys building reliable applications,
+                        integrating complex services and solving business problems with clean
+                        technical solutions.
+                    </p>
+                </div>
+
+                <div class="card skill-card reveal">
+                    <p>
+                        I specialize in PHP and Laravel development with experience across SaaS,
+                        private aviation, billing, messaging, e-commerce, e-learning and business
+                        management platforms. My work includes REST API development, database
+                        optimization, Redis queues, third-party integrations, e-signature workflows,
+                        automated document generation and multilingual applications.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills -->
+        <section id="skills">
+            <div class="container">
+                <div class="section-heading reveal">
+                    <h2>Technical Skills</h2>
+                    <p>
+                        A practical backend-focused technology stack covering application development,
+                        integrations, databases, messaging and delivery.
+                    </p>
+                </div>
+
+                <div class="skills-grid">
+
+                    <div class="card skill-card reveal">
+                        <h3>Backend Development</h3>
+                        <p>
+                            PHP, Laravel, CodeIgniter, Yii2, REST APIs, Web Services,
+                            SaaS Development, Job Queues and Background Jobs.
+                        </p>
+                        <div class="tags">
+                            <span class="tag">PHP</span>
+                            <span class="tag">Laravel</span>
+                            <span class="tag">REST APIs</span>
+                        </div>
+                    </div>
+
+                    <div class="card skill-card reveal">
+                        <h3>Database & Messaging</h3>
+                        <p>
+                            MySQL database design, migrations, query optimization,
+                            Redis queues and notification systems.
+                        </p>
+                        <div class="tags">
+                            <span class="tag">MySQL</span>
+                            <span class="tag">Redis</span>
+                            <span class="tag">SQL</span>
+                        </div>
+                    </div>
+
+                    <div class="card skill-card reveal">
+                        <h3>Frontend & Tools</h3>
+                        <p>
+                            JavaScript, jQuery, AJAX, HTML, CSS, Git, GitHub and GitLab,
+                            with experience building multilingual applications.
+                        </p>
+                        <div class="tags">
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">GitHub</span>
+                            <span class="tag">GitLab</span>
+                        </div>
+                    </div>
+
+                    <div class="card skill-card reveal">
+                        <h3>Third-Party Integrations</h3>
+                        <p>
+                            Avinode API, PandaDoc, SignWell, Firebase, SDK integration
+                            and e-signature workflows.
+                        </p>
+                    </div>
+
+                    <div class="card skill-card reveal">
+                        <h3>Engineering</h3>
+                        <p>
+                            Database optimization, scalable backend workflows, automated
+                            document generation and application performance improvement.
+                        </p>
+                    </div>
+
+                    <div class="card skill-card reveal">
+                        <h3>Leadership</h3>
+                        <p>
+                            Client coordination, requirements analysis, project management,
+                            team leadership and technical problem solving.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience -->
+        <section id="experience">
+            <div class="container">
+                <div class="section-heading reveal">
+                    <h2>Professional Experience</h2>
+                    <p>
+                        Experience spanning private aviation, SaaS platforms, high-volume messaging
+                        and business applications.
+                    </p>
+                </div>
+
+                <div class="timeline">
+
+                    <article class="experience reveal">
+                        <div class="experience-date">Mar 2025 — Present</div>
+
+                        <div>
+                            <h3>Senior Laravel Developer</h3>
+                            <div class="company">
+                                Journai Global Pvt Ltd (formerly Desklay Technologies)
+                            </div>
+
+                            <ul>
+                                <li>
+                                    Lead backend development of The Private Aviation Company (TPAC),
+                                    a booking and quotation platform for private aviation.
+                                </li>
+                                <li>
+                                    Integrated Avinode API for real-time aircraft pricing and
+                                    quotation workflows.
+                                </li>
+                                <li>
+                                    Implemented passenger management, e-signature workflows,
+                                    automated document generation and multilingual functionality.
+                                </li>
+                                <li>
+                                    Designed and optimized database structures to support scalable
+                                    booking and quotation workflows.
+                                </li>
+                                <li>
+                                    Implemented JSON-based data submissions and multilingual
+                                    application functionality.
+                                </li>
+                                <li>
+                                    Developed backend features using Laravel, PHP, MySQL, REST APIs,
+                                    JavaScript, jQuery and AJAX.
+                                </li>
+                                <li>
+                                    Collaborated with stakeholders to analyze requirements and
+                                    deliver scalable business solutions.
+                                </li>
+                            </ul>
+                        </div>
+                    </article>
+
+                    <article class="experience reveal">
+                        <div class="experience-date">Dec 2020 — Mar 2025</div>
+
+                        <div>
+                            <h3>Backend Developer</h3>
+                            <div class="company">Shrinkcom Software Pvt. Ltd.</div>
+
+                            <ul>
+                                <li>
+                                    Developed and maintained web applications using Laravel,
+                                    CodeIgniter and Yii2.
+                                </li>
+                                <li>
+                                    Designed and integrated REST APIs, third-party APIs and SDKs
+                                    including PandaDoc, SignWell and Firebase.
+                                </li>
+                                <li>
+                                    Developed Redis-based job queue services for high-volume
+                                    email, SMS and Firebase notification delivery.
+                                </li>
+                                <li>
+                                    Designed and optimized MySQL databases, migrations, queries
+                                    and application data structures.
+                                </li>
+                                <li>
+                                    Developed SaaS-based applications and backend business workflows.
+                                </li>
+                                <li>
+                                    Implemented e-signature workflows and third-party service
+                                    integrations.
+                                </li>
+                                <li>
+                                    Collaborated directly with clients to gather requirements
+                                    and deliver technical solutions.
+                                </li>
+                                <li>
+                                    Led small development teams and coordinated project delivery
+                                    to meet deadlines and quality requirements.
+                                </li>
+                            </ul>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects -->
+        <section id="projects">
+            <div class="container">
+                <div class="section-heading reveal">
+                    <h2>Selected Projects</h2>
+                    <p>
+                        Representative work across aviation, SaaS billing, messaging,
+                        commerce, learning and operations.
+                    </p>
+                </div>
+
+                <div class="projects-grid">
+
+                    <article class="card project-card reveal">
+                        <div class="project-number">01 · PRIVATE AVIATION</div>
+                        <h3>The Private Aviation Company (TPAC)</h3>
+                        <p>
+                            Private aviation booking and quotation platform with real-time
+                            Avinode pricing, passenger management, e-signatures, automated
+                            document generation and multilingual workflows.
+                        </p>
+                        <div class="tags">
+                            <span class="tag">Laravel</span>
+                            <span class="tag">PHP</span>
+                            <span class="tag">MySQL</span>
+                            <span class="tag">Avinode API</span>
+                        </div>
+                    </article>
+
+                    <article class="card project-card reveal">
+                        <div class="project-number">02 · SAAS</div>
+                        <h3>Water Billing Management System</h3>
+                        <p>
+                            Cloud-based SaaS billing application supporting customer accounts,
+                            consumption tracking, billing, invoicing and payment processing.
+                        </p>
+                        <div class="tags">
+                            <span class="tag">Laravel</span>
+                            <span class="tag">PHP</span>
+                            <span class="tag">SaaS</span>
+                            <span class="tag">MySQL</span>
+                        </div>
+                    </article>
+
+                    <article class="card project-card reveal">
+                        <div class="project-number">03 · MESSAGING</div>
+                        <h3>SMS & Email Wrapper Platform</h3>
+                        <p>
+                            Bulk communication platform using Redis-backed background jobs
+                            for scalable email and SMS delivery.
+                        </p>
+                        <div class="tags">
+                            <span class="tag">Laravel</span>
+                            <span class="tag">Redis</span>
+                            <span class="tag">Job Queues</span>
+                        </div>
+                    </article>
+
+                    <article class="card project-card reveal">
+                        <div class="project-number">04 · E-COMMERCE</div>
+                        <h3>E-Commerce Platform</h3>
+                        <p>
+                            Multi-vendor e-commerce platform for pharmacies, importers and
+                            users, including logistics, bulk purchasing, accounting and ledger modules.
+                        </p>
+                        <div class="tags">
+                            <span class="tag">CodeIgniter</span>
+                            <span class="tag">MySQL</span>
+                        </div>
+                    </article>
+
+                    <article class="card project-card reveal">
+                        <div class="project-number">05 · E-LEARNING</div>
+                        <h3>i-Learning Platform</h3>
+                        <p>
+                            Customized Yii2 learning platform supporting course enrollment,
+                            videos, documents, quizzes and course content.
+                        </p>
+                        <div class="tags">
+                            <span class="tag">Yii2</span>
+                            <span class="tag">PHP</span>
+                            <span class="tag">MySQL</span>
+                        </div>
+                    </article>
+
+                    <article class="card project-card reveal">
+                        <div class="project-number">06 · OPERATIONS</div>
+                        <h3>Additional Platforms</h3>
+                        <p>
+                            Government driving-school workflows, restaurant and tiffin
+                            management systems, and property booking APIs with administrative panels.
+                        </p>
+                        <div class="tags">
+                            <span class="tag">Laravel</span>
+                            <span class="tag">CodeIgniter</span>
+                            <span class="tag">REST APIs</span>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Awards -->
+        <section id="awards">
+            <div class="container">
+
+                <div class="section-heading reveal">
+                    <h2>Awards & Education</h2>
+                    <p>
+                        Recognition for backend performance, accuracy, innovation and overall contribution.
+                    </p>
+                </div>
+
+                <div class="awards-grid">
+
+                    <div class="card award-card reveal">
+                        <div class="award-year">2025</div>
+                        <div>
+                            <h3>Pinnacle Performer Award</h3>
+                            <p>Journai Global Pvt Ltd</p>
+                        </div>
+                    </div>
+
+                    <div class="card award-card reveal">
+                        <div class="award-year">2023</div>
+                        <div>
+                            <h3>Brainiac Award</h3>
+                            <p>Innovative Concept Implementation · Shrinkcom Software Pvt Ltd</p>
+                        </div>
+                    </div>
+
+                    <div class="card award-card reveal">
+                        <div class="award-year">2022</div>
+                        <div>
+                            <h3>Expert Accuracy Award</h3>
+                            <p>Backend Development · Shrinkcom Software Pvt Ltd</p>
+                        </div>
+                    </div>
+
+                    <div class="card award-card reveal">
+                        <div class="award-year">2021</div>
+                        <div>
+                            <h3>Outstanding Performance Award</h3>
+                            <p>Backend Development · Shrinkcom Software Pvt Ltd</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="card education-card reveal">
+                    <h3>Bachelor of Engineering (B.E.) — Computer Science Engineering</h3>
+                    <p>
+                        Rajiv Gandhi Proudyogiki Vishwavidyalaya (RGPV), Ratlam
+                        · CGPA 8.1/10 · Year of Passing: 2019
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section id="contact">
+            <div class="container">
+                <div class="card contact-card reveal">
+
+                    <div>
+                        <div class="eyebrow">Let's build something reliable.</div>
+                        <h2>Open to senior backend opportunities.</h2>
+                        <p>
+                            Laravel, PHP, backend development, API integration and software development roles.
+                        </p>
+                    </div>
+
+                    <div class="contact-actions">
+                        <a class="btn btn-primary" href="mailto:adityayogi07@gmail.com">
+                            Email Me
+                        </a>
+                        <a class="btn" href="tel:+918839497272">
+                            Call Me
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            © <span id="year"></span> Aditya Yogi · Senior Software Developer
+        </div>
+    </footer>
+
+</div>
+
+<script>
+(function () {
+    const root = document.documentElement;
+    const themeToggle = document.getElementById("themeToggle");
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+
+    // Theme
+    const savedTheme = localStorage.getItem("portfolio-theme");
+
+    if (savedTheme === "dark") {
+        root.setAttribute("data-theme", "dark");
+    }
+
+    themeToggle.addEventListener("click", function () {
+        const isDark = root.getAttribute("data-theme") === "dark";
+
+        if (isDark) {
+            root.removeAttribute("data-theme");
+            localStorage.setItem("portfolio-theme", "light");
+        } else {
+            root.setAttribute("data-theme", "dark");
+            localStorage.setItem("portfolio-theme", "dark");
+        }
+    });
+
+    // Mobile navigation
+    menuToggle.addEventListener("click", function () {
+        navLinks.classList.toggle("open");
+    });
+
+    navLinks.querySelectorAll("a").forEach(function (link) {
+        link.addEventListener("click", function () {
+            navLinks.classList.remove("open");
+        });
+    });
+
+    // Scroll reveal
+    const revealElements = document.querySelectorAll(".reveal");
+
+    if ("IntersectionObserver" in window) {
+        const observer = new IntersectionObserver(
+            function (entries, obs) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("visible");
+                        obs.unobserve(entry.target);
+                    }
+                });
+            },
+            { threshold: 0.12 }
+        );
+
+        revealElements.forEach(function (element) {
+            observer.observe(element);
+        });
+    } else {
+        revealElements.forEach(function (element) {
+            element.classList.add("visible");
+        });
+    }
+
+    // Active section navigation / scroll spy
+    const navItems = Array.from(navLinks.querySelectorAll("a"));
+    const sections = navItems
+        .map(function (link) {
+            return document.querySelector(link.getAttribute("href"));
+        })
+        .filter(Boolean);
+
+    function updateActiveNav() {
+        const marker = window.scrollY + 120;
+        let current = sections[0];
+
+        sections.forEach(function (section) {
+            if (section.offsetTop <= marker) {
+                current = section;
+            }
+        });
+
+        navItems.forEach(function (link) {
+            link.classList.toggle(
+                "active",
+                link.getAttribute("href") === "#" + current.id
+            );
+        });
+    }
+
+    updateActiveNav();
+    window.addEventListener("scroll", updateActiveNav, { passive: true });
+    window.addEventListener("resize", updateActiveNav);
+
+    // Footer year
+    document.getElementById("year").textContent = new Date().getFullYear();
+})();
+</script>
+
+</body>
+</html>
