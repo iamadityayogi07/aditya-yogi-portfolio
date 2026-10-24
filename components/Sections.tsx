@@ -205,6 +205,13 @@ export function Contact() {
             >
               Call me
             </a>
+            <a
+              href="/Aditya-Yogi-Resume.pdf"
+              download
+              className="btn-ghost rounded-full px-7 py-3.5 font-semibold"
+            >
+              Download resume ↓
+            </a>
           </div>
         </div>
       </Tile>

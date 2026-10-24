@@ -31,6 +31,13 @@ export default function Hero() {
             >
               View projects →
             </a>
+            <a
+              href="/Aditya-Yogi-Resume.pdf"
+              download
+              className="btn-ghost rounded-full px-6 py-3 text-sm font-semibold"
+            >
+              Download resume ↓
+            </a>
           </div>
         </Tile>
 
