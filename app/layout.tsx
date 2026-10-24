@@ -6,11 +6,29 @@ const sans = Inter({ subsets: ["latin"], variable: "--font-sans" });
 const display = Space_Grotesk({ subsets: ["latin"], variable: "--font-display" });
 const mono = JetBrains_Mono({ subsets: ["latin"], variable: "--font-mono" });
 
+const siteUrl = "https://aditya-yogi-portfolio.vercel.app";
+const title = "Aditya Yogi | Senior Software Developer";
+const description =
+  "Aditya Yogi — Senior Software Developer specializing in PHP, Laravel, MySQL, REST APIs, Redis and scalable backend systems, plus Android apps with Flutter.";
+
 export const metadata: Metadata = {
-  title: "Aditya Yogi | Senior Software Developer",
-  description:
-    "Aditya Yogi — Senior Software Developer specializing in PHP, Laravel, MySQL, REST APIs, Redis and scalable backend systems.",
+  metadataBase: new URL(siteUrl),
+  title,
+  description,
   authors: [{ name: "Aditya Yogi" }],
+  openGraph: {
+    type: "website",
+    url: siteUrl,
+    siteName: "Aditya Yogi",
+    title,
+    description,
+    locale: "en_IN",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+  },
 };
 
 // Runs before hydration so the saved theme applies without a flash. Light is the default.
