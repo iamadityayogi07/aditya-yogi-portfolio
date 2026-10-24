@@ -26,7 +26,7 @@ const awardTones: Tone[] = ["amber", "pink", "cyan", "emerald"];
 
 export function About() {
   return (
-    <section id="about" className="wrap py-14">
+    <section id="about" className="wrap py-10 sm:py-14">
       <Tile tone="blue">
         <div className="grid gap-6 md:grid-cols-[14rem_1fr]">
           <div>
@@ -44,7 +44,7 @@ export function About() {
 
 export function Skills() {
   return (
-    <section id="skills" className="wrap py-14">
+    <section id="skills" className="wrap py-10 sm:py-14">
       <SectionHeading
         kicker="Skills"
         title="Technical toolbox"
@@ -74,7 +74,7 @@ export function Skills() {
 export function Experience() {
   const tones: Tone[] = ["cyan", "violet"];
   return (
-    <section id="experience" className="wrap py-14">
+    <section id="experience" className="wrap py-10 sm:py-14">
       <SectionHeading
         kicker="Experience"
         title="Where I've worked"
@@ -107,7 +107,7 @@ export function Experience() {
 
 export function Projects() {
   return (
-    <section id="projects" className="wrap py-14">
+    <section id="projects" className="wrap py-10 sm:py-14">
       <SectionHeading
         kicker="Projects"
         title="Selected work"
@@ -156,7 +156,7 @@ export function Projects() {
 
 export function Awards() {
   return (
-    <section id="awards" className="wrap py-14">
+    <section id="awards" className="wrap py-10 sm:py-14">
       <SectionHeading
         kicker="Awards & education"
         title="Recognition"
@@ -182,7 +182,7 @@ export function Awards() {
 
 export function Contact() {
   return (
-    <section id="contact" className="wrap py-14">
+    <section id="contact" className="wrap py-10 sm:py-14">
       <Tile tone="pink">
         <div className="py-6 text-center sm:py-12">
           <div className="eyebrow">Let&apos;s build something reliable</div>

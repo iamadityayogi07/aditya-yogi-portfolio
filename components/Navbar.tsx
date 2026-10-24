@@ -59,7 +59,7 @@ export default function Navbar() {
           <button
             onClick={toggleTheme}
             aria-label={dark ? "Switch to light theme" : "Switch to dark theme"}
-            className="soft grid h-9 w-9 place-items-center rounded-full text-lg transition-colors hover:bg-fg/10 hover:text-fg"
+            className="soft grid h-10 w-10 place-items-center rounded-full text-lg transition-colors hover:bg-fg/10 hover:text-fg"
           >
             {dark ? "☀" : "☾"}
           </button>

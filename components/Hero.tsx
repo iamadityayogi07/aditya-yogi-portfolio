@@ -6,8 +6,8 @@ const arrowMaze = projects[projects.length - 1];
 export default function Hero() {
   return (
     <section id="home" className="wrap pb-6 pt-28 sm:pt-32">
-      <div className="grid gap-4 lg:grid-cols-12">
-        <Tile tone="violet" className="lg:col-span-8 lg:row-span-2">
+      <div className="grid grid-cols-2 gap-4 lg:grid-cols-12">
+        <Tile tone="violet" className="col-span-2 lg:col-span-8 lg:row-span-2">
           <p className="eyebrow flex items-center gap-2">
             <span className="h-2 w-2 animate-pulse rounded-full bg-emerald-400" />
             Available for new roles
@@ -41,19 +41,19 @@ export default function Hero() {
           </div>
         </Tile>
 
-        <Tile tone="cyan" className="lg:col-span-4" delay={0.05}>
+        <Tile tone="cyan" className="col-span-1 lg:col-span-4" delay={0.05}>
           <div className="eyebrow">Experience</div>
-          <div className="mt-3 font-display text-6xl font-bold">5+</div>
+          <div className="mt-3 font-display text-5xl font-bold sm:text-6xl">5+</div>
           <div className="soft">years building production software</div>
         </Tile>
 
-        <Tile tone="pink" className="lg:col-span-4" delay={0.1}>
+        <Tile tone="pink" className="col-span-1 lg:col-span-4" delay={0.1}>
           <div className="eyebrow">Recognition</div>
-          <div className="mt-3 font-display text-6xl font-bold">4</div>
+          <div className="mt-3 font-display text-5xl font-bold sm:text-6xl">4</div>
           <div className="soft">performance awards, 2021 – 2025</div>
         </Tile>
 
-        <Tile tone="emerald" className="lg:col-span-5" delay={0.05}>
+        <Tile tone="emerald" className="col-span-2 lg:col-span-5" delay={0.05}>
           <div className="eyebrow">Core stack</div>
           <div className="mt-5 space-y-3">
             {[marquee, [...marquee].reverse()].map((row, r) => (
@@ -76,7 +76,7 @@ export default function Hero() {
           </div>
         </Tile>
 
-        <Tile tone="amber" className="lg:col-span-7" delay={0.1}>
+        <Tile tone="amber" className="col-span-2 lg:col-span-7" delay={0.1}>
           <div className="flex items-start justify-between gap-4">
             <div>
               <div className="eyebrow">Latest app · Flutter</div>
@@ -93,7 +93,7 @@ export default function Hero() {
                 </a>
               )}
             </div>
-            <div aria-hidden className="grid shrink-0 grid-cols-3 gap-1.5 font-display text-2xl text-amber-600 dark:text-amber-300/80">
+            <div aria-hidden className="hidden shrink-0 grid-cols-3 sm:grid gap-1.5 font-display text-2xl text-amber-600 dark:text-amber-300/80">
               {["↗", "→", "↘", "↑", "✦", "↓", "↖", "←", "↙"].map((a, i) => (
                 <span key={i} className="grid h-10 w-10 place-items-center rounded-lg border border-amber-500/30 bg-amber-400/10">
                   {a}

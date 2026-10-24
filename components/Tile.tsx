@@ -40,7 +40,7 @@ export default function Tile({
     >
       <div
         onMouseMove={onMove}
-        className="tile h-full p-6 sm:p-7"
+        className="tile h-full p-5 sm:p-7"
         style={{ "--tone": tones[tone] } as React.CSSProperties}
       >
         {children}

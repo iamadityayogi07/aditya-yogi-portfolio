@@ -1,10 +1,11 @@
 import Hero from "../components/Hero";
+import MotionProvider from "../components/MotionProvider";
 import Navbar from "../components/Navbar";
 import { About, Awards, Contact, Experience, Footer, Projects, Skills } from "../components/Sections";
 
 export default function Home() {
   return (
-    <>
+    <MotionProvider>
       <div className="scene" aria-hidden />
       <Navbar />
       <main>
@@ -17,6 +18,6 @@ export default function Home() {
         <Contact />
       </main>
       <Footer />
-    </>
+    </MotionProvider>
   );
 }
